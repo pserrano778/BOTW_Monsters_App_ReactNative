@@ -23,6 +23,7 @@
     "jwt-decode": "^3.1.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-i18next": "^11.14.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-appearance": "^0.3.4",
     "react-native-confirmation-code-field": "^7.1.0",
@@ -30,6 +31,7 @@
     "react-native-easy-toast": "^2.0.0",
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "^1.10.3",
+    "react-native-i18n": "^2.0.15",
     "react-native-input-scroll-view": "^1.11.0",
     "react-native-keyboard-height": "^1.1.2",
     "react-native-loading-spinner-overlay": "^2.0.0",
@@ -44,7 +46,9 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0"
+    "@babel/core": "^7.9.0",
+    "@types/react-native-i18n": "^2.0.0",
+    "typescript": "~4.0.0"
   },
   "private": true
 }

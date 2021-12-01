@@ -1,0 +1,36 @@
+{
+  "loginPage": {
+    
+  },
+  "MonsterListPage": {
+    "addMonster": "Añadir Monstruo"
+  },
+  "MonsterDetailsPage": {
+    "locations": "Localización",
+    "drops": "Botín"
+  },
+  "Buttons": {
+    "submit": "Enviar"
+  },
+  "SearchBar": {
+    "placeholder": "Escribe para filtrar por nombre",
+    "message": "Filtrar por nombre",
+    "noMatches": "No se ha encontrado ningún monstruo utilizando ese filtro"
+  },
+  "AddMonsterPage": {
+    "name": "Nombre",
+    "image": "Imagen",
+    "description": "Descripción",
+    "locations": "Localización",
+    "drops": "Botín",
+    "namePlaceholder": "Introduce el nombre del monstruo",
+    "imagePlaceholder": "Introduce la imagen del monstruo",
+    "descriptionPlaceholder": "Introduce la descripción del monstruo",
+    "locationsPlaceholder": "Introduce la localización el monstruo",
+    "dropsPlaceholder": "Introduce el botín del monstruo"
+  },
+  "LoadData": {
+    "loadingError": "Error al tratar de cargar los datos",
+    "loading": "Cargando datos"
+  }
+}
