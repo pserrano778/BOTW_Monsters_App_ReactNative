@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "botw_monsters-info_app",
+    "slug": "botw_monsters-info_app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "botw_monsters-info_app"
+}
