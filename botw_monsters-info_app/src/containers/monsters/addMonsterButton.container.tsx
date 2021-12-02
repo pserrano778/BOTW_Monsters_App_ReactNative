@@ -1,15 +1,14 @@
 import React from 'react'
 import AddMonsterButton from '../../components/monsters/addMonsterButton/addMonstersButton.component'
-import { useNavigate } from 'react-router-dom'
+import { Actions } from 'react-native-router-flux'
 
 const AddMonsterButtonContainer = (): JSX.Element => {
-  const navigate = useNavigate()
 
   const handleClick = (): void => {
-    navigate('/addMonster')
+    //Actions.
   }
 
-  return <AddMonsterButton onClick={handleClick} />
+  return 
 }
 
 export default AddMonsterButtonContainer

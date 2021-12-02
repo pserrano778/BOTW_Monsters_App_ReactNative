@@ -9,13 +9,12 @@ import {
   hasError,
 } from '../../redux/slices/monstersSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { useTranslation } from 'react-i18next'
-
+import  I18n from '../../translation/i18n'
+import { View,Text } from 'react-native'
 // Function that controls all monsters
-const MonstersContainer = (): JSX.Element => {
+const MonstersContainer: React.FC = () => {
   const dispatch = useDispatch()
   const allMonstersFiltered = useSelector(selectAllMonstersFiltered)
-  const { t } = useTranslation('common')
   // Use effect to get allMonster the first time
   useEffect(() => {
     dispatch(getAllMonsters())
@@ -25,15 +24,15 @@ const MonstersContainer = (): JSX.Element => {
   const isLoading = useSelector(isLoadingAllMonsters)
   const error = useSelector(hasError)
   if (isLoading && allMonstersFiltered.length === 0) {
-    return <p>{t('LoadData.loading')}</p>
+    return <Text>{I18n.t('LoadData.loading')}</Text>
   } else if (error) {
-    return <p>{t('LoadData.loadingError')}</p>
+    return <Text>{I18n.t('LoadData.loadingError')}</Text>
   }
 
   return (
-    <div>
-      <AddMonsterButtonContainer />
-      <SearchBarContainer />
+    <View>
+      
+
       <MonstersList
         monsters={allMonstersFiltered
           .map((monster) => {
@@ -52,7 +51,7 @@ const MonstersContainer = (): JSX.Element => {
             else return 0
           })}
       />
-    </div>
+    </View>
   )
 }
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import MonsterPreview from '../monsterPreview/monsterPreview.component'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import { useTranslation } from 'react-i18next'
+import  I18n from '../../../translation/i18n'
+import { StyleSheet, Text, View } from 'react-native';
+
 // Monster interface
 interface Monster {
   name: string
@@ -17,21 +17,13 @@ interface Props {
 // Function that controls all monsters
 const MonstersList: React.FC<Props> = (props) => {
   const { monsters } = props
-  const { t } = useTranslation('common')
+
   if (!monsters || monsters.length === 0) {
-    return <p>{t('SearchBar.noMatches')}</p>
+    return <Text>{I18n.t('SearchBar.noMatches')}</Text>
   }
   return (
-    <Container>
-      <Row
-        xs="1"
-        sm="2"
-        md="3"
-        lg="4"
-        xl="5"
-        xxl="6"
-        className="justify-content-center"
-      >
+    <View>
+
         {monsters.map((monster) => (
           <MonsterPreview
             key={monster.name}
@@ -39,8 +31,7 @@ const MonstersList: React.FC<Props> = (props) => {
             src={monster.image}
           />
         ))}
-      </Row>
-    </Container>
+    </View>
   )
 }
 
