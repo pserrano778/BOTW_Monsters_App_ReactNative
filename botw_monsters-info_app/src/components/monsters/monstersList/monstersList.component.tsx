@@ -1,8 +1,8 @@
 import React from 'react'
 import MonsterPreview from '../monsterPreview/monsterPreview.component'
 import  I18n from '../../../translation/i18n'
-import { StyleSheet, Text, View } from 'react-native';
-
+import { StyleSheet, Text, ScrollView } from 'react-native';
+import style from './style'
 // Monster interface
 interface Monster {
   name: string
@@ -22,7 +22,7 @@ const MonstersList: React.FC<Props> = (props) => {
     return <Text>{I18n.t('SearchBar.noMatches')}</Text>
   }
   return (
-    <View>
+    <ScrollView style={style.container}>
 
         {monsters.map((monster) => (
           <MonsterPreview
@@ -31,7 +31,7 @@ const MonstersList: React.FC<Props> = (props) => {
             src={monster.image}
           />
         ))}
-    </View>
+    </ScrollView>
   )
 }
 

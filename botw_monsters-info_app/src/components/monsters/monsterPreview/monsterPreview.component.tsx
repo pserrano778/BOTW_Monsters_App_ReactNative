@@ -1,6 +1,6 @@
 import React from 'react'
-import { Text } from 'react-native'
-
+import { View, Text, Image } from 'react-native'
+import style from "./style"
 // Props interface
 interface Props {
   name: string
@@ -10,10 +10,14 @@ interface Props {
 // Function that display the monster Preview
 const MonstersPeview: React.FC<Props> = (props) => {
   const { name, src } = props
-  
+
   //Return the preview with a link to the monster data
   return (
-    <Text>{name}</Text>
+    <View style={style.container}>
+      <Image style={style.image} source={{uri:src}}/>
+      <Text style={style.name}>
+      {name}</Text>
+    </View>
   )
 }
 
