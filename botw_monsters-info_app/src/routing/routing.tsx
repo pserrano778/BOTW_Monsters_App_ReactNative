@@ -13,9 +13,8 @@ const Routing: React.FC = () => {
           <Scene key="main" component={MonstersContainer} hideNavBar />
           {/* Specific monster info */}  
           <Scene key="monster" component={MonsterDataContainer} hideNavBar/>
-
           {/* Add a new monster */}
-       
+          <Scene key="addMonster" component={AddMonsterContainer} hideNavBar/>
         </Stack>
       </Router>
   )

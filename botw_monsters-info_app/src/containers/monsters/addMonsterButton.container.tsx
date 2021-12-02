@@ -2,13 +2,13 @@ import React from 'react'
 import AddMonsterButton from '../../components/monsters/addMonsterButton/addMonstersButton.component'
 import { Actions } from 'react-native-router-flux'
 
-const AddMonsterButtonContainer = (): JSX.Element => {
+const AddMonsterButtonContainer: React.FC = () => {
 
-  const handleClick = (): void => {
-    //Actions.
+  const handlePress = (): void => {
+    Actions.addMonster();
   }
 
-  return 
+  return (<AddMonsterButton onPress={handlePress} />)
 }
 
 export default AddMonsterButtonContainer

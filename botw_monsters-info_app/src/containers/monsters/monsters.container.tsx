@@ -23,7 +23,6 @@ const MonstersContainer: React.FC = () => {
   }, [dispatch])
 
   const handlePress = (name: string) => {
-
     Actions.monster({monsterName: name})
   }
 
@@ -38,7 +37,7 @@ const MonstersContainer: React.FC = () => {
 
   return (
     <View>
-      
+      <AddMonsterButtonContainer />
 
       <MonstersList handlePress={handlePress}
         monsters={allMonstersFiltered

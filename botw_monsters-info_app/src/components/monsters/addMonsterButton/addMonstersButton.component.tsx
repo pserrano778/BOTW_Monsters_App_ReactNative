@@ -1,16 +1,15 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button'
-import { useTranslation } from 'react-i18next'
+import {Button} from 'react-native'
+import  I18n from '../../../translation/i18n'
 // Props interface
 interface Props {
-  onClick: () => void
+  onPress: () => void
 }
 
 const AddMonsterButton: React.FC<Props> = (props) => {
-  const { onClick } = props
-  const { t } = useTranslation('common')
+  const { onPress } = props
 
-  return <Button onClick={onClick}>{t('MonsterListPage.addMonster')}</Button>
+  return <Button onPress={onPress} title={I18n.t('MonsterListPage.addMonster')} />
 }
 
 export default AddMonsterButton

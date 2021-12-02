@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import AddMonsterForm from '../../components/monsters/addMonsterForm/addMonsterForm.component'
 import { addMonster } from '../../redux/actions/monsters'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Actions } from 'react-native-router-flux'
 
 // MonsterDetails
 interface MonsterDetails {
@@ -13,12 +13,7 @@ interface MonsterDetails {
   drops: string
 }
 
-// Event interface
-interface Event {
-  target: { name: string; value: string }
-}
-
-const AddMonsterContainer = (): JSX.Element => {
+const AddMonsterContainer: React.FC = () => {
   const [monsterDetails, setMonsterDetails] = useState<MonsterDetails>({
     name: '',
     image: '',
@@ -28,11 +23,9 @@ const AddMonsterContainer = (): JSX.Element => {
   })
 
   const dispatch = useDispatch()
-  const navigate = useNavigate()
 
   // When there is a change
-  const handleChange = (e: Event): void => {
-    const { name, value } = e.target
+  const handleChange = (name: string, value: string): void => {
     setMonsterDetails((prev) => ({
       ...prev,
       [name]: value,
@@ -40,9 +33,7 @@ const AddMonsterContainer = (): JSX.Element => {
   }
 
   // When data is submited
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-    //Avoid to refresh the page
-    e.preventDefault()
+  const handleSubmit = (): void => {
     // Create monster Object to post it
     const newMonster = {
       locations: monsterDetails.locations,
@@ -56,7 +47,7 @@ const AddMonsterContainer = (): JSX.Element => {
     dispatch(addMonster(newMonster))
 
     // Navigate to previous page
-    navigate('/')
+    Actions.main()
   }
 
   return (

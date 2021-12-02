@@ -17,21 +17,21 @@ export const getAllMonsters = createAsyncThunk(GET_ALL_MONSTERS, async () => {
 export const addMonster = createAsyncThunk(
   ADD_MONSTER,
   async (monster: MonsterDetailsStr, thunkApi) => {
-    const requestOptions = {
+    console.log("POSt")
+    const response = await axios({
       method: 'POST',
+      url: url + '/addMonster',
       headers: {
         Accept: '*/*',
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
       },
-      body: new URLSearchParams(monster as MonsterDetailsStr),
-    }
-    const response = await fetch(url + '/addMonster', requestOptions)
-    const json = await response.json()
-    // Duplicated Key
+      data: monster
+    })
 
-    if (json.code && json.code === 11000) {
+    // Duplicated Key
+    if (response.data && response.data === 11000) {
       return thunkApi.rejectWithValue('error')
     }
-    return json
+    return response.data
   }
 )

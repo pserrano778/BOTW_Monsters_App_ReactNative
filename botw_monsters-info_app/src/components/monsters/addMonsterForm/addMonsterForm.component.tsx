@@ -1,9 +1,8 @@
 import React from 'react'
-import Form from 'react-bootstrap/Form'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
-import { useTranslation } from 'react-i18next'
+import { Button } from 'react-native'
+import  I18n from '../../../translation/i18n'
+import { TextInput } from 'react-native-gesture-handler'
+import {View, Text} from 'react-native'
 // MonsterDetails
 interface MonsterDetails {
   name: string
@@ -21,98 +20,49 @@ interface Event {
 // Props interface
 interface Props {
   value: MonsterDetails
-  onChange: (e: Event) => void
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void
+  onChange: (name: string, value: string) => void
+  onSubmit: () => void
 }
 
 const addMonsterFormComponent: React.FC<Props> = (props) => {
   const { value, onChange, onSubmit } = props
-  const { t } = useTranslation('common')
   return (
-    <Form onSubmit={onSubmit}>
-      <Form.Group as={Row}>
-        <Form.Label column sm={2}>
-          {t('AddMonsterPage.name')}
-        </Form.Label>
-        <Col sm={10}>
-          <Form.Control
-            type="text"
-            placeholder={t('AddMonsterPage.namePlaceholder')}
-            onChange={onChange}
-            name="name"
+    <View>
+          <Text>{I18n.t('AddMonsterPage.name')}</Text>
+          <TextInput 
+            placeholder={I18n.t('AddMonsterPage.namePlaceholder')}
+            onChangeText={(input) => {onChange('name', input)}}
             value={value.name}
-            required
           />
-        </Col>
-      </Form.Group>
-
-      <Form.Group as={Row}>
-        <Form.Label column sm={2}>
-          {t('AddMonsterPage.image')}
-        </Form.Label>
-        <Col sm={10}>
-          <Form.Control
-            type="text"
-            placeholder={t('AddMonsterPage.imagePlaceholder')}
-            onChange={onChange}
-            name="image"
+          <Text>{I18n.t('AddMonsterPage.image')}</Text>
+          <TextInput
+            placeholder={I18n.t('AddMonsterPage.imagePlaceholder')}
+            onChangeText={(input) => {onChange('image', input)}}
             value={value.image}
-            required
           />
-        </Col>
-      </Form.Group>
 
-      <Form.Group as={Row}>
-        <Form.Label column sm={2}>
-          {t('AddMonsterPage.description')}
-        </Form.Label>
-        <Col sm={10}>
-          <Form.Control
-            type="text"
-            placeholder={t('AddMonsterPage.descriptionPlaceholder')}
-            onChange={onChange}
-            name="description"
+          <Text>{I18n.t('AddMonsterPage.description')}</Text>
+
+          <TextInput
+            placeholder={I18n.t('AddMonsterPage.descriptionPlaceholder')}
+            onChangeText={(input) => {onChange('description', input)}}
             value={value.description}
-            required
           />
-        </Col>
-      </Form.Group>
+          <Text>{I18n.t('AddMonsterPage.locations')}</Text>
 
-      <Form.Group as={Row}>
-        <Form.Label column sm={2}>
-          {t('AddMonsterPage.locations')}
-        </Form.Label>
-        <Col sm={10}>
-          <Form.Control
-            type="text"
-            placeholder={t('AddMonsterPage.locationsPlaceholder')}
-            onChange={onChange}
-            name="locations"
+          <TextInput
+            placeholder={I18n.t('AddMonsterPage.locationsPlaceholder')}
+            onChangeText={(input) => {onChange('locations', input)}}
             value={value.locations}
-            required
           />
-        </Col>
-      </Form.Group>
-
-      <Form.Group as={Row}>
-        <Form.Label column sm={2}>
-          {t('AddMonsterPage.drops')}
-        </Form.Label>
-        <Col sm={10}>
-          <Form.Control
-            type="text"
-            placeholder={t('AddMonsterPage.dropsPlaceholder')}
-            onChange={onChange}
-            name="drops"
+          <Text>{I18n.t('AddMonsterPage.drops')}</Text>
+          <TextInput
+            placeholder={I18n.t('AddMonsterPage.dropsPlaceholder')}
+            onChangeText={(input) => onChange('drops', input)}
             value={value.drops}
           />
-        </Col>
-      </Form.Group>
-
-      <Button variant="primary" type={'submit'}>
-        {t('Buttons.submit')}
-      </Button>
-    </Form>
+      <Button onPress={() => {onSubmit()}} title={I18n.t('Buttons.submit')} />
+    </View>
   )
 }
 
