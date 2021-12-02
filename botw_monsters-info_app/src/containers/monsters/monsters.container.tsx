@@ -11,6 +11,8 @@ import {
 import { useDispatch, useSelector } from 'react-redux'
 import  I18n from '../../translation/i18n'
 import { View,Text } from 'react-native'
+import { Actions } from 'react-native-router-flux';
+
 // Function that controls all monsters
 const MonstersContainer: React.FC = () => {
   const dispatch = useDispatch()
@@ -19,6 +21,10 @@ const MonstersContainer: React.FC = () => {
   useEffect(() => {
     dispatch(getAllMonsters())
   }, [dispatch])
+
+  const handlePress = (name: string) => {
+    Actions.monster()
+  }
 
   // Check if data has been loaded
   const isLoading = useSelector(isLoadingAllMonsters)
@@ -33,7 +39,7 @@ const MonstersContainer: React.FC = () => {
     <View>
       
 
-      <MonstersList
+      <MonstersList handlePress={handlePress}
         monsters={allMonstersFiltered
           .map((monster) => {
             return { name: monster.name, image: monster.image }

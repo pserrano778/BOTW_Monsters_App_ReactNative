@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import MonsterView from '../../components/monsters/monsterView/monsterView.component'
-import { useParams } from 'react-router-dom'
+import  I18n from '../../translation/i18n'
 import { getMonster } from '../../redux/actions/monster'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -9,14 +9,14 @@ import {
   isLoadingMonster,
   hasError,
 } from '../../redux/slices/monsterSlice'
-import { useTranslation } from 'react-i18next'
+import {Text} from 'react-native'
 
-const MonsterDataContainer = (): JSX.Element => {
+const MonsterDataContainer: React.FC = () => {
   // Get the monster info
-  const name = useParams().name as string
+  const name = "Lynel"
   const dispatch = useDispatch()
   const monsterDetails = useSelector(selectMonster)
-  const { t } = useTranslation('common')
+
   // Use effect to get the info
   useEffect(() => {
     //Dispatch the action
@@ -31,9 +31,9 @@ const MonsterDataContainer = (): JSX.Element => {
   const isLoading = useSelector(isLoadingMonster)
   const error = useSelector(hasError)
   if (isLoading) {
-    return <p>{t('LoadData.loading')}</p>
+    return <Text>{I18n.t('LoadData.loading')}</Text>
   } else if (error) {
-    return <p>{t('LoadData.loadingError')}</p>
+    return <Text>{I18n.t('LoadData.loadingError')}</Text>
   }
 
   return (

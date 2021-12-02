@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
   name: {
       marginTop: 15,
       marginBottom: 35,
-      fontSize: 20
+      fontSize: 20,
+      alignSelf: 'center'
   }
 })
 

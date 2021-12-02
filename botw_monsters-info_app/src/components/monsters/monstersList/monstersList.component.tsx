@@ -11,13 +11,13 @@ interface Monster {
 
 // Props interface
 interface Props {
-  monsters: Monster[]
+  monsters: Monster[],
+  handlePress: (name: string) => void
 }
 
 // Function that controls all monsters
 const MonstersList: React.FC<Props> = (props) => {
-  const { monsters } = props
-
+  const { monsters, handlePress} = props
   if (!monsters || monsters.length === 0) {
     return <Text>{I18n.t('SearchBar.noMatches')}</Text>
   }
@@ -29,6 +29,7 @@ const MonstersList: React.FC<Props> = (props) => {
             key={monster.name}
             name={monster.name}
             src={monster.image}
+            handlePress={handlePress}
           />
         ))}
     </ScrollView>

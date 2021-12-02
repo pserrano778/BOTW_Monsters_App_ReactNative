@@ -1,12 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { GET_ALL_MONSTERS, ADD_MONSTER, MonsterDetailsStr } from '../types'
 import url from '../serverConnection'
+import axios from 'axios'
 
 // Action created with createAsyncThunk that get all the Monsters
 export const getAllMonsters = createAsyncThunk(GET_ALL_MONSTERS, async () => {
-  const response = await fetch(url + '/getAllMonsters')
-  const json = await response.json()
-  return json
+  const response = await axios({
+      method: 'GET',
+      url: url + '/getAllMonsters'
+    })
+  const data= await response.data
+  return data
 })
 
 // Action created with createAsyncThunk that post a new monster

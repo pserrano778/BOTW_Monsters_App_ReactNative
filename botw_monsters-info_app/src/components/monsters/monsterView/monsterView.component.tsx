@@ -1,6 +1,5 @@
 import React from 'react'
-import Figure from 'react-bootstrap/Figure'
-import { useTranslation } from 'react-i18next'
+import  I18n from '../../../translation/i18n'
 // Props interface
 interface Props {
   name: string
@@ -9,6 +8,7 @@ interface Props {
   drops: string[]
   src: string
 }
+import { View, Text, Image } from 'react-native'
 // Cambiar con redux
 const MonsterView: React.FC<Props> = (props) => {
   const name = props.name as string
@@ -16,28 +16,23 @@ const MonsterView: React.FC<Props> = (props) => {
   const description = props.description as string
   const drops = props.drops as []
   const src = props.src as string
-  const { t } = useTranslation('common')
+ 
 
   return (
-    <div>
-      <Figure>
-        <Figure.Caption>
-          <h2>{name}</h2>
-        </Figure.Caption>
-        <Figure.Image src={src} alt={name} />
-      </Figure>
-      <p>{description}</p>
+    <View>
+      
+      <Text>{description}</Text>
       {locations && locations.length > 0 && (
-        <p>
-          {t('MonsterDetailsPage.locations')}: {locations.join(', ')}
-        </p>
+        <Text>
+          {I18n.t('MonsterDetailsPage.locations')}: {locations.join(', ')}
+        </Text>
       )}
       {drops && drops.length > 0 && (
-        <p>
-          {t('MonsterDetailsPage.drops')}: {drops.join(', ')}
-        </p>
+        <Text>
+          {I18n.t('MonsterDetailsPage.drops')}: {drops.join(', ')}
+        </Text>
       )}
-    </div>
+    </View>
   )
 }
 
