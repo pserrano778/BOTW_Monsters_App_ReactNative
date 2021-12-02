@@ -1,5 +1,6 @@
 import React from 'react'
 import  I18n from '../../../translation/i18n'
+import style from './style'
 // Props interface
 interface Props {
   name: string
@@ -9,6 +10,7 @@ interface Props {
   src: string
 }
 import { View, Text, Image } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
 // Cambiar con redux
 const MonsterView: React.FC<Props> = (props) => {
   const name = props.name as string
@@ -19,20 +21,27 @@ const MonsterView: React.FC<Props> = (props) => {
  
 
   return (
-    <View>
+    <ScrollView >
+      <View style={style.container}>
+      <Text style={style.name}>{name}</Text>
+ 
+      <Image style={style.image} source={{uri:src}}/>
       
-      <Text>{description}</Text>
+      <Text style={style.text}>{description}</Text>
       {locations && locations.length > 0 && (
-        <Text>
-          {I18n.t('MonsterDetailsPage.locations')}: {locations.join(', ')}
+        <Text style={style.text}>
+          <Text style={style.field}>{I18n.t('MonsterDetailsPage.locations')}: </Text>{locations.join(', ')}
         </Text>
       )}
       {drops && drops.length > 0 && (
-        <Text>
-          {I18n.t('MonsterDetailsPage.drops')}: {drops.join(', ')}
-        </Text>
+     
+      <Text style={style.text}>
+        <Text style={style.field}>{I18n.t('MonsterDetailsPage.drops')}: </Text> {drops.join(', ')}
+      </Text>
+        
       )}
-    </View>
+      </View>
+    </ScrollView>
   )
 }
 

@@ -13,7 +13,6 @@ export const getMonster = createAsyncThunk(
     })
 
     const data = response.data
-    console.log(data)
     return data
   }
 )

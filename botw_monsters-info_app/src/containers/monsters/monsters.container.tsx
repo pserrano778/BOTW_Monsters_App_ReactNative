@@ -23,7 +23,8 @@ const MonstersContainer: React.FC = () => {
   }, [dispatch])
 
   const handlePress = (name: string) => {
-    Actions.monster()
+
+    Actions.monster({monsterName: name})
   }
 
   // Check if data has been loaded

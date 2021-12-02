@@ -11,21 +11,25 @@ import {
 } from '../../redux/slices/monsterSlice'
 import {Text} from 'react-native'
 
-const MonsterDataContainer: React.FC = () => {
+interface Props {
+  monsterName: string
+}
+
+const MonsterDataContainer: React.FC<Props> = (props) => {
   // Get the monster info
-  const name = "Lynel"
+  const {monsterName} = props
   const dispatch = useDispatch()
   const monsterDetails = useSelector(selectMonster)
 
   // Use effect to get the info
   useEffect(() => {
     //Dispatch the action
-    dispatch(getMonster(name))
+    dispatch(getMonster(monsterName))
     return () => {
       // Clear when finish
       dispatch(clearMonster())
     }
-  }, [name, dispatch])
+  }, [monsterName, dispatch])
 
   // Check if data has been loaded
   const isLoading = useSelector(isLoadingMonster)
