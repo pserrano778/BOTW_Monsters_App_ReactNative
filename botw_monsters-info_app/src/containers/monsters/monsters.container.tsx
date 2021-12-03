@@ -10,7 +10,7 @@ import {
 } from '../../redux/slices/monstersSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import  I18n from '../../translation/i18n'
-import { View,Text } from 'react-native'
+import { View,Text, StyleSheet } from 'react-native'
 import { Actions } from 'react-native-router-flux';
 
 // Function that controls all monsters

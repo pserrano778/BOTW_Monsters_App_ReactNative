@@ -3,6 +3,7 @@ import { Button } from 'react-native'
 import  I18n from '../../../translation/i18n'
 import { TextInput } from 'react-native-gesture-handler'
 import {View, Text} from 'react-native'
+import style from './style'
 // MonsterDetails
 interface MonsterDetails {
   name: string
@@ -27,36 +28,36 @@ interface Props {
 const addMonsterFormComponent: React.FC<Props> = (props) => {
   const { value, onChange, onSubmit } = props
   return (
-    <View>
-          <Text>{I18n.t('AddMonsterPage.name')}</Text>
+    <View style={style.form}>
+          <Text style={style.field}>{I18n.t('AddMonsterPage.name')}</Text>
           <TextInput 
             placeholder={I18n.t('AddMonsterPage.namePlaceholder')}
             onChangeText={(input) => {onChange('name', input)}}
             value={value.name}
           />
-          <Text>{I18n.t('AddMonsterPage.image')}</Text>
-          <TextInput
+          <Text style={style.field}>{I18n.t('AddMonsterPage.image')}</Text>
+          <TextInput style={style.textField}
             placeholder={I18n.t('AddMonsterPage.imagePlaceholder')}
             onChangeText={(input) => {onChange('image', input)}}
             value={value.image}
           />
 
-          <Text>{I18n.t('AddMonsterPage.description')}</Text>
+          <Text style={style.field}>{I18n.t('AddMonsterPage.description')}</Text>
 
-          <TextInput
+          <TextInput style={style.textField}
             placeholder={I18n.t('AddMonsterPage.descriptionPlaceholder')}
             onChangeText={(input) => {onChange('description', input)}}
             value={value.description}
           />
-          <Text>{I18n.t('AddMonsterPage.locations')}</Text>
+          <Text style={style.field}>{I18n.t('AddMonsterPage.locations')}</Text>
 
-          <TextInput
+          <TextInput style={style.textField}
             placeholder={I18n.t('AddMonsterPage.locationsPlaceholder')}
             onChangeText={(input) => {onChange('locations', input)}}
             value={value.locations}
           />
-          <Text>{I18n.t('AddMonsterPage.drops')}</Text>
-          <TextInput
+          <Text style={style.field}>{I18n.t('AddMonsterPage.drops')}</Text>
+          <TextInput style={style.textField}
             placeholder={I18n.t('AddMonsterPage.dropsPlaceholder')}
             onChangeText={(input) => onChange('drops', input)}
             value={value.drops}

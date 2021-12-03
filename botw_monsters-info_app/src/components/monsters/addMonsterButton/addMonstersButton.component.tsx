@@ -1,6 +1,7 @@
 import React from 'react'
-import {Button} from 'react-native'
+import { View, Button } from 'react-native'
 import  I18n from '../../../translation/i18n'
+import style from './style'
 // Props interface
 interface Props {
   onPress: () => void
@@ -9,7 +10,7 @@ interface Props {
 const AddMonsterButton: React.FC<Props> = (props) => {
   const { onPress } = props
 
-  return <Button onPress={onPress} title={I18n.t('MonsterListPage.addMonster')} />
+  return <View style={style.button}><Button onPress={onPress} title={I18n.t('MonsterListPage.addMonster')} /></View>
 }
 
 export default AddMonsterButton
