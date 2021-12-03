@@ -12,7 +12,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import  I18n from '../../translation/i18n'
 import { View,Text, StyleSheet } from 'react-native'
 import { Actions } from 'react-native-router-flux';
-
+import stupe from './monstersContainerStyle'
+import style from './monstersContainerStyle'
 // Function that controls all monsters
 const MonstersContainer: React.FC = () => {
   const dispatch = useDispatch()
@@ -36,9 +37,8 @@ const MonstersContainer: React.FC = () => {
   }
 
   return (
-    <View>
-      <AddMonsterButtonContainer />
-
+    <View style={style.container}>
+      <SearchBarContainer />
       <MonstersList handlePress={handlePress}
         monsters={allMonstersFiltered
           .map((monster) => {
@@ -57,6 +57,7 @@ const MonstersContainer: React.FC = () => {
             else return 0
           })}
       />
+      <AddMonsterButtonContainer />
     </View>
   )
 }

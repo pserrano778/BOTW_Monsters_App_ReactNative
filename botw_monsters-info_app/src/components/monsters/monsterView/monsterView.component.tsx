@@ -23,23 +23,23 @@ const MonsterView: React.FC<Props> = (props) => {
   return (
     <ScrollView >
       <View style={style.container}>
-      <Text style={style.name}>{name}</Text>
- 
-      <Image style={style.image} source={{uri:src}}/>
-      
-      <Text style={style.text}>{description}</Text>
-      {locations && locations.length > 0 && (
-        <Text style={style.text}>
-          <Text style={style.field}>{I18n.t('MonsterDetailsPage.locations')}: </Text>{locations.join(', ')}
-        </Text>
-      )}
-      {drops && drops.length > 0 && (
-     
-      <Text style={style.text}>
-        <Text style={style.field}>{I18n.t('MonsterDetailsPage.drops')}: </Text> {drops.join(', ')}
-      </Text>
+        <Text style={style.name}>{name}</Text>
+  
+        <Image style={style.image} source={{uri:src}}/>
         
-      )}
+        <Text style={style.text}>{description}</Text>
+        {locations && locations.length > 0 && (
+          <Text style={style.text}>
+            <Text style={style.field}>{I18n.t('MonsterDetailsPage.locations')}: </Text>{locations.join(', ')}
+          </Text>
+        )}
+        {drops && drops.length > 0 && (
+      
+        <Text style={style.text}>
+          <Text style={style.field}>{I18n.t('MonsterDetailsPage.drops')}: </Text> {drops.join(', ')}
+        </Text>
+          
+        )}
       </View>
     </ScrollView>
   )

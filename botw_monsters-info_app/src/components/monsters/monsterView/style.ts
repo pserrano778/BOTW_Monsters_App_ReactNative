@@ -5,9 +5,9 @@ const ratio = win.width/280;
 const styles = StyleSheet.create({
   container: {
       flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
   },
   image: {
     

@@ -12,13 +12,13 @@ interface Event {
 }
 
 // Function that Track the filter
-const SearchBarContainer = (): JSX.Element => {
+const SearchBarContainer: React.FC = () => {
   const dispatch = useDispatch()
   const searchFilter = useSelector(selectSearchFilter)
 
   // Change the value
-  const handleChange = (e: Event) => {
-    dispatch(setSearchFilter(e.target.value))
+  const handleChange = (value: string) => {
+    dispatch(setSearchFilter(value))
   }
 
   // Return a searchBar
