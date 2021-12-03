@@ -11,7 +11,7 @@ export const getMonster = createAsyncThunk(
       method: 'GET',
       url: url + '/getMonster/' + name.replace(/ /g, '_')
     })
-
+    console.log(response)
     const data = response.data
     return data
   }
