@@ -88,7 +88,7 @@ app.get('/getMonster/*', (req, res) => {
     if (error) {
       return res.status(500).send(error);
     }
-console.log(result)
+
     return res.status(200).send(result);
   });
 });
