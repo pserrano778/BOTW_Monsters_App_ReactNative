@@ -12,17 +12,19 @@ interface Monster {
 // Props interface
 interface Props {
   monsters: Monster[],
-  handlePress: (name: string) => void
+  handlePress: (name: string) => void,
+  testID?: string
 }
 
 // Function that controls all monsters
 const MonstersList: React.FC<Props> = (props) => {
-  const { monsters, handlePress} = props
+  const { monsters, handlePress, testID} = props
+
   if (!monsters || monsters.length === 0) {
     return <Text>{I18n.t('SearchBar.noMatches')}</Text>
   }
   return (
-    <ScrollView style={style.container}>
+    <ScrollView style={style.container} testID={testID}>
 
         {monsters.map((monster) => (
           <MonsterPreview
