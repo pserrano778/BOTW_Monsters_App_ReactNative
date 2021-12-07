@@ -17,7 +17,7 @@ export const getAllMonsters = createAsyncThunk(GET_ALL_MONSTERS, async () => {
 export const addMonster = createAsyncThunk(
   ADD_MONSTER,
   async (monster: MonsterDetailsStr, thunkApi) => {
-    console.log("POSt")
+
     const response = await axios({
       method: 'POST',
       url: url + '/addMonster',

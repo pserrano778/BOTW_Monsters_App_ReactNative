@@ -1,5 +1,5 @@
 import reducer from '../../../../../src/redux/slices/monstersSlice'
-import store from '../../../../../src/redux/index'
+
 import {
   Monster,
   Monsters,

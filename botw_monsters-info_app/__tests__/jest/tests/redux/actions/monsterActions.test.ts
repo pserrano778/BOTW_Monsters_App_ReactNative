@@ -1,9 +1,8 @@
-import { Monsters } from '../../../../../src/redux/types'
 import axios from 'axios'
 import {
   getMonster,
 } from '../../../../../src/redux/actions/monster'
-import { Store, configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 import monsterReducer from '../../../../../src/redux/slices/monsterSlice'
 
 // Create the store
@@ -52,7 +51,7 @@ describe('Test get a monster', () => {
     await store.dispatch(getMonster(monsterName))
 
       const state = store.getState().monsterDetails;
-      console.log(state)
+
       expect(state).toMatchObject({...initialState, monster: data.data});
   })
    
@@ -65,7 +64,7 @@ describe('Test get a monster', () => {
     await store.dispatch(getMonster(monsterName))
 
       const state = store.getState().monsterDetails;
-      console.log(state)
+
       expect(state).toMatchObject({...initialState, hasError: true});
   })
 })
