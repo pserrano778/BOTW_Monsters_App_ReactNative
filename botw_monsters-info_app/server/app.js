@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const { MongoClient } = require('mongodb');
 
-const uri = 'mongodb+srv://BOTW_App_Admn:PEwapeJGS4o24ac9xa@cluster0.l54jd.mongodb.net/BOTW_Monsters_App?retryWrites=true&w=majority';
+const uri = ''; // Set url with auth
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
